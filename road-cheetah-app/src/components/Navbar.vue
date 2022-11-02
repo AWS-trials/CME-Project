@@ -9,10 +9,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="HelloWorld.vue">My Deliveries</a>
+                        <router-link class="nav-link" to="/driverHomeView">My Deliveries</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Route.vue">Delivery Route</a>
+                        <router-link class="nav-link" to="/driverRouteView">Delivery Route</router-link>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Pricing</a>
