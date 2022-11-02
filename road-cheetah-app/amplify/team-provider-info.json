@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-roadcheetahapp-dev-194932-authRole",
+      "UnauthRoleArn": "arn:aws:iam::444278898470:role/amplify-roadcheetahapp-dev-194932-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::444278898470:role/amplify-roadcheetahapp-dev-194932-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-roadcheetahapp-dev-194932-deployment",
+      "UnauthRoleName": "amplify-roadcheetahapp-dev-194932-unauthRole",
+      "StackName": "amplify-roadcheetahapp-dev-194932",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:444278898470:stack/amplify-roadcheetahapp-dev-194932/6ae82ad0-5aa4-11ed-ad3d-06180222d972",
+      "AmplifyAppId": "d8vjypqcuyqby"
+    }
+  }
+}
