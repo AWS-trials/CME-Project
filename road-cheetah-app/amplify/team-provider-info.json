@@ -10,6 +10,11 @@
       "StackName": "amplify-roadcheetahapp-dev-194932",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:444278898470:stack/amplify-roadcheetahapp-dev-194932/6ae82ad0-5aa4-11ed-ad3d-06180222d972",
       "AmplifyAppId": "d8vjypqcuyqby"
+    },
+    "categories": {
+      "auth": {
+        "roadcheetahapp0d199ae7": {}
+      }
     }
   }
 }
