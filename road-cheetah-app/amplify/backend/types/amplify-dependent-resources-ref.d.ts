@@ -11,7 +11,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "geo": {
-        "mapcloud": {
+        "maptry": {
             "Name": "string",
             "Style": "string",
             "Region": "string",

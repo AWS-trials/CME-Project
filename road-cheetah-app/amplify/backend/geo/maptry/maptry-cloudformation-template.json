@@ -287,6 +287,9 @@
         "Roles": [
           {
             "Ref": "authRoleName"
+          },
+          {
+            "Ref": "unauthRoleName"
           }
         ]
       }
