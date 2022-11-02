@@ -27,10 +27,7 @@
 </template>
 
 <script>
-    export default {
-        name: "Navbar",
-        data() {
-            return {};
-        },
-    };
+export default {
+    name: "Navbar",
+};
 </script>
