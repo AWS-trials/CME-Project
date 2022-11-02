@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav nav-pills" style="color:black">
+                <ul class="nav navbar" style="color:black">
                     <li class="nav-item">
                         <router-link class="nav-link" to="/driverHomeView">My Deliveries</router-link>
                     </li>
