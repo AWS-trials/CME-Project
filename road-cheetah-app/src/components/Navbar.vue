@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f3faff;">
+        <!-- <div class="container-fluid"> -->
             <a class="navbar-brand nav-link disabled" href="#" tabindex="-1" aria-disabled="true" >
-                <img src="../../public/favicon.png" width="50" height="30" alt="">
+                <img src="../../public/favicon.png" alt="" width="40" height="24" class="d-inline-block align-text-top">
                 Logistics Management
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
