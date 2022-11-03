@@ -1,13 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DriverHomeView from '../views/DriverHomeView.vue'
-
+import DriverRouteView from '../views/DriverRouteView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/driverHomeView',
+    name: 'driverHomeView',
+    component: DriverHomeView
+  },
+  {
+    path: '/driverRouteView',
+    name: 'driverRouteView',
+    component: DriverRouteView
   },
   {
     path: '/about',

@@ -27,14 +27,28 @@ export default {
 
 nav {
   padding: 30px;
+  color:rgb(59, 59, 59);
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  /* color: #2c3e50; */
 }
 
+
+.nav-link {
+  color:rgb(59, 59, 59);
+}
+
+/* .nav-link a:hover, .nav-link a:hover {
+  color:rgb(59, 59, 59);
+} */
+
+
+#navbarNav > ul > a:active{
+  color: #397dbd;
+}
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #397dbd;
 }
 </style>
