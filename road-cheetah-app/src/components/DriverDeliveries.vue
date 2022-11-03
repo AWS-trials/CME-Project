@@ -90,7 +90,6 @@ export default {
                     status: "Pending"
                 }
             ],
-            numberCompletedDeliveries: 0
         }
     },
     components:{},
