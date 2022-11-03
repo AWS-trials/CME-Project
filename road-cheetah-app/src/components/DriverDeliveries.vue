@@ -1,17 +1,17 @@
 <template>
-    <div class="container">
-        <h1 class="text-start">
+    <div class=" mt-5 p-3 mb-2 container bg-light ">
+        <h2 class="text-start">
             Delivery Progress
-        </h1>
-        <h3 class="text-start">
+        </h2>
+        <h5 class="text-start">
             {{ calculateCompletedDeliveries }} Orders are completed
-        </h3>
+        </h5>
     </div>
 
     <br/>
 
-    <div class="container">
-        <h1 class="text-start">My Deliveries</h1>
+    <div class="p-3 mb-2 container bg-light">
+        <h2 class="text-start">My Deliveries</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -120,3 +120,9 @@ export default {
     },
 };
 </script>
+
+<style>
+h2 {
+    color:navy;
+}
+</style>

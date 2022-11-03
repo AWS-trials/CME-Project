@@ -1,5 +1,8 @@
 <template>
     <!-- My Deliveries -->
+    <h1 class="pt-3">
+        <b>Welcome, user</b>
+    </h1>
     <DriverDeliveries/>
 </template>
 
