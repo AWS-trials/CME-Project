@@ -34,6 +34,7 @@ export default {
             });
             return route
         }
+        //not used until i can getRoute
         const addRouteToMap = (map) => {
             routes = getRoute(routeId)
             let coordinates
@@ -74,7 +75,7 @@ export default {
             const map = mapCreate()
             const route = getRoute('22fec574-2fc3-44ff-9d83-8622fafbd0ca')
             
-            //testing
+            //testing, proof axios is working and im not stupid (hopefully)
             axios.get('http://webcode.me').then(resp => {
 
             console.log(resp.data);
