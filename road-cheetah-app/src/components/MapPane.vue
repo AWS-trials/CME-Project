@@ -23,10 +23,6 @@ export default {
             });
             return route
         }
-        const getGoogle = async () => {
-            const route = await axios.get('https://www.google.com/')
-            return route.data
-        }
         onMounted(()=>{
             getRoute('22fec574-2fc3-44ff-9d83-8622fafbd0ca')
             axios.get('http://webcode.me').then(resp => {
