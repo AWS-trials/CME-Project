@@ -17,7 +17,9 @@
           <div class="card shadow">
             <div class="card-body">
               <h5><b>DELIVERY METRICS (DAILY)</b></h5>
-              <!-- <DailyDeliveries></DailyDeliveries> -->
+              <div class="my-3" style="min-height: 500px;">
+                <DailyDeliveries></DailyDeliveries>
+              </div>
             </div>
           </div>
         </div>
@@ -36,18 +38,13 @@
           </div>
         </div>
       </div>
+
   </div>
 </template>
 <script setup>
   import LateDeliveries from "@/components/Charts/LateDeliveries.vue";
   import PunctualDeliveries from "@/components/Charts/PunctualDeliveries.vue";
-  import DailyDeliveries from "@/components/Charts/DailyDeliveries.vue";
-</script>
-<script>
-  export default{
-    methods:{
-    },
-  }
+  import DailyDeliveries from "@/components/Charts/DailyDeliveries.ts";
 </script>
 <style scoped>
     .card-body{
