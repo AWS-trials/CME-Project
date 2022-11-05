@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DriverHomeView from '../views/DriverHomeView.vue'
 import DriverRouteView from '../views/DriverRouteView.vue'
+import DriverManager from '../views/DriverManager.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/driverRouteView',
     name: 'driverRouteView',
     component: DriverRouteView
+  },
+  {
+    path: '/driverManager',
+    name: 'driverManager',
+    component: DriverManager
   },
   {
     path: '/about',
