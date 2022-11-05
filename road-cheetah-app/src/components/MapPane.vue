@@ -28,59 +28,90 @@ export default {
             return map
         }
         const getRoute = async (routeId) => {
-            const route = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/routes?routeId=' + routeId).then(function (response) {
-                console.log(response.data);
-                return response.data
-            });
+            // const route = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/route?routeId=' + routeId).then(function (response) {
+            //     console.log(response.data);
+            //     return response.data
+            // });
+            const route = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/route?routeId=' + routeId)
             return route
         }
-        //not used until i can getRoute
-        const addRouteToMap = (map) => {
-            routes = getRoute(routeId)
-            let coordinates
-            // for a_route in routes:
-            for(var i=0;i<length( routes.Legs);i++){
-                coordinates = routes.Legs[i].Geometry.LineString
-                map.on('load', function () {
-                            map.addSource('route_sample', {
-                                'type': 'geojson',
-                                'data': {
-                                    'type': 'Feature',
-                                    'properties': {},
-                                    'geometry': {
-                                        'type': 'LineString',
-                                        'coordinates': coordinates
+        const addRouteToMap = async (map, routeId) => {
+            await getRoute(routeId).then((response)=>{
+                const data = response.data
+                return data
+            }).then((data)=>{
+                let coordinates
+                let end_coordinates
+                let markers = []
+                console.log(data)
+                // for a_route in routes:
+                console.log('length',data.route_legs.length)
+                
+                    map.on('load', function () {
+                        for(var i=0;i< data.route_legs.length;i++){
+                            coordinates = data.route_legs[i].Geometry.LineString
+                            end_coordinates = data.route_legs[i].EndPosition
+                                map.addSource('route' + i, {
+                                    'type': 'geojson',
+                                    'data': {
+                                        'type': 'Feature',
+                                        'properties': {},
+                                        'geometry': {
+                                            'type': 'LineString',
+                                            'coordinates': coordinates
+                                        }
                                     }
-                                }
-                            });
-                            map.addLayer({
-                                'id': 'route_sample',
-                                'type': 'line',
-                                'source': 'route_sample',
-                                'layout': {
-                                    'line-join': 'round',
-                                    'line-cap': 'round'
-                                },
-                                'paint': {
-                                    'line-color': '#FF0000',
-                                    'line-width': 10,
-                                    'line-opacity': 0.5
-                                }
-                            });
-                        });
-            }   
+                                });
+                                map.addLayer({
+                                    'id': 'id' + i,
+                                    'type': 'line',
+                                    'source': 'route' + i,
+                                    'layout': {
+                                        'line-join': 'round',
+                                        'line-cap': 'round'
+                                    },
+                                    'paint': {
+                                        'line-color': '#1338BE',
+                                        'line-width': 10,
+                                        'line-opacity': 0.5
+                                    }
+                                });
+
+                                
+                                markers.push({
+                                    coordinates: end_coordinates,
+                                    title: data.Orders[i],
+                                    address: data.Locations[i+1],
+                                    })
+                            }  
+                        markers.unshift({
+                                    coordinates: data.route_legs[0].StartPosition,
+                                    title: 'Departure',
+                                    address: data.Locations[0],
+                                    }),
+                        drawPoints("points",
+                                markers,
+                                map,
+                                {
+                                    showCluster: true,
+                                    unclusteredOptions: {
+                                    showMarkerPopup: true,
+                                    },
+                                    clusterOptions: {
+                                    showCount: true,
+                                    },
+                                });
+                    });
+                
+
+            })
+               
             
         }
-        onMounted(()=>{
-            const map = mapCreate()
-            const route = getRoute('22fec574-2fc3-44ff-9d83-8622fafbd0ca')
-            
-            //testing, proof axios is working and im not stupid (hopefully)
-            axios.get('http://webcode.me').then(resp => {
-
-            console.log(resp.data);
-            });
-            // void addRouteToMap(map)
+        onMounted(async ()=>{
+            map = await mapCreate()
+            // const route = getRoute('0b07d7cb-f077-4af3-b169-1c1d6954341f')
+            void addRouteToMap(map,'0b07d7cb-f077-4af3-b169-1c1d6954341f' )
         })
         return{
 
