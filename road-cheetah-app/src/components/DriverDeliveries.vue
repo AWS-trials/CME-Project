@@ -9,7 +9,7 @@
     </div> -->
 
     <br/>
-    <div class="p-3 mb-2 container bg-light">
+    <div class="p-3 mb-4 container bg-light">
         <h2>
             <b>Overview:</b>
         </h2>
@@ -18,7 +18,10 @@
         
     </div>
     <div class="p-3 mb-2 container bg-light">
-        <h2 class="text-start">My Deliveries</h2>
+        <h2>
+            <b>My Deliveries:</b>
+        </h2>
+        <br>
         <table class="table">
             <thead>
                 <tr>
