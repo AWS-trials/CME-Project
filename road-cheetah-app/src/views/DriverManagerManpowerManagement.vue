@@ -6,5 +6,11 @@
 <script>
 
     import ManpowerManagement from "@/components/ManpowerManagement.vue"
+    export default {
+        name: "DriverManagerManpowerManagement",
+        components: {
+            ManpowerManagement
+        }
+    }
 
 </script>
