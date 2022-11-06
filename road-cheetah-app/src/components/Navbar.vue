@@ -17,17 +17,17 @@
                             Delivery Route
                         </router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole === 'driver'">
+                    <li class="nav-item" v-if="currentUserRole == 'driver'">
                         <router-link class="nav-link" to="/driverHomeView">
                             Driver Deliveries
                         </router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole === 'manager'">
+                    <li class="nav-item" v-if="currentUserRole == 'manager'">
                         <router-link class="nav-link" to="/driverManager">
                             Driver Manager View
                         </router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole === 'manager'">
+                    <li class="nav-item" v-if="currentUserRole == 'manager'">
                         <router-link class="nav-link" to="/driverManagerManpowerManagement">
                             Manpower Management View
                         </router-link>
