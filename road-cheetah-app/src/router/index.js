@@ -12,11 +12,6 @@ const routes = [
     component: DriverHomeView
   },
   {
-    path: '/driverHomeView',
-    name: 'driverHomeView',
-    component: DriverHomeView
-  },
-  {
     path: '/driverRouteView',
     name: 'driverRouteView',
     component: DriverRouteView

@@ -12,8 +12,17 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav navbar" style="color:black">
-                    <li class="nav-item" v-if="currentUserRole == 'driver'">
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/">Driver Deliveries</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link" to="/driverRouteView">Delivery Route</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverManager">Drivery Manager</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverManagerManpowerManagement">Driver Manpower Management</router-link>
                     </li>
                     <li class="nav-item" @click="signOut()">
                         <a class="nav-link" href="#">Sign Out</a>
