@@ -108,20 +108,29 @@ export default {
 			.then(response => {
                 var response = response.data
                 console.log("here")
-                console.log(response.json)
+                console.log(response)
                 for(var key in response) {
-                    //console.log(response[key])2
-                    var delivery_obj = response[key];
-                    //console.log(delivery_obj)
-                    for (let each in delivery_obj) {
-                        //console.log(typeof(delivery_obj[each]["AssignedDateTime"]),delivery_obj[each]["AssignedDateTime"])
-                        //console.log(typeof(currentDate),currentDate)
-                        if (delivery_obj[each]["AssignedDateTime"]==currentDate) {
-                            //console.log("woof")
-                            // console.group(typeof(delivery_obj[each]))
-                            this.orders.push(delivery_obj[each])
-                        }
-                    }
+                    //console.log(key)
+                    console.log(response[key]);
+                    // var delivery_obj = response[key];
+                    // console.log("Woof")
+                    // console.log(delivery_obj)
+                    // if (delivery_obj["AssignedDateTime"]==currentDate) {
+                    //         //console.log("woof")
+                    //         // console.group(typeof(delivery_obj[each]))
+                    //         this.orders.push(delivery_obj)
+                    //     }
+                    // for (let each in delivery_obj) {
+                    //     console.log("2nd for")
+                    //     console.log(each)
+                    //     //console.log(typeof(delivery_obj[each]["AssignedDateTime"]),delivery_obj[each]["AssignedDateTime"])
+                    //     //console.log(typeof(currentDate),currentDate)
+                    //     if (delivery_obj[each]["AssignedDateTime"]==currentDate) {
+                    //         //console.log("woof")
+                    //         // console.group(typeof(delivery_obj[each]))
+                    //         this.orders.push(delivery_obj[each])
+                    //     }
+                    // }
                     console.log(typeof(this.orders))
                 }
 			})
