@@ -69,7 +69,9 @@ export default defineComponent({
       let patch_request = {
         "routeId":routeId,
         "updateKey":"OrderStatuses",
-        "updateValue": routes.value.OrderStatuses
+        "updateValue": routes.value.OrderStatuses,
+        "orderId":routes.value.Order[orderIndex],
+        "driverId": routes.value.driverId,
       }
       console.log('routes',  routes.value)
       console.log('patch_request',patch_request)
