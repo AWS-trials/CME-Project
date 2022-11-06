@@ -1,21 +1,18 @@
 <template>
-    <div class="container">
-    </div>
+    <br>
+    <h1>Manpower Management</h1>
+    <ManpowerManagement/>
 </template>
 
 <script>
+
+    import ManpowerManagement from "@/components/ManpowerManagement.vue"
+
     export default {
         name: "DriverManagerManpowerManagement",
-        data() {
-            return {
-                // currentUserRole: null
-            }
-        },
-        methods: {
-        },
-        created() {
-            // this.currentUserRole = this.$store.state.currentUserRole
-            // console.log(this.currentUserRole)
+        components: {
+            ManpowerManagement
         }
     }
+
 </script>

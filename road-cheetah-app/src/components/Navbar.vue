@@ -12,25 +12,17 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav navbar" style="color:black">
-                    <li class="nav-item" v-if="currentUserRole === 'driver'">
-                        <router-link class="nav-link" to="/driverRouteView">
-                            Delivery Route
-                        </router-link>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/">Driver Deliveries</router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole == 'driver'">
-                        <router-link class="nav-link" to="/driverHomeView">
-                            Driver Deliveries
-                        </router-link>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverRouteView">Delivery Route</router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole == 'manager'">
-                        <router-link class="nav-link" to="/driverManager">
-                            Driver Manager View
-                        </router-link>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverManager">Delivery Manager Dashboard</router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole == 'manager'">
-                        <router-link class="nav-link" to="/driverManagerManpowerManagement">
-                            Manpower Management View
-                        </router-link>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverManagerManpowerManagement">Driver Manpower Management</router-link>
                     </li>
                     <li class="nav-item" @click="signOut()">
                         <a class="nav-link" href="#">Sign Out</a>
