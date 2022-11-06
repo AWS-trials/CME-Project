@@ -15,7 +15,6 @@
                     <th scope="col">Assigned Warehouse</th>
                     <th scope="col">Orders Completed</th>
                     <th scope="col">Orders In-Progress</th>
-                    <th scope="col">Orders Pending</th>
                 </tr>
             </thead>
             <tbody>
