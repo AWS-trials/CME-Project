@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <router-link class="nav-link" to="/driverManagerManpowerManagement">Driver Manpower Management</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/driverManagerOrders">Driver Manager Orders</router-link>
+                    </li>
                     <li class="nav-item" @click="signOut()">
                         <a class="nav-link" href="#">Sign Out</a>
                     </li>
