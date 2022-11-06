@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import DriverHomeView from '../views/DriverHomeView.vue'
 import DriverRouteView from '../views/DriverRouteView.vue'
 import DriverManager from '../views/DriverManager.vue'
+import DriverManagerManpowerManagement from '../views/DriverManagerManpowerManagement.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/driverManager',
     name: 'driverManager',
     component: DriverManager
+  },
+  {
+    path: '/driverManagerManpowerManagement',
+    name: 'driverManagerManpowerManagement',
+    component: DriverManagerManpowerManagement
   },
   {
     path: '/about',
