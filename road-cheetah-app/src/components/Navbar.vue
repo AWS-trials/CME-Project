@@ -19,7 +19,7 @@
                         <router-link class="nav-link" to="/driverRouteView">Delivery Route</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/driverManager">Drivery Manager</router-link>
+                        <router-link class="nav-link" to="/driverManager">Delivery Manager Dashboard</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/driverManagerManpowerManagement">Driver Manpower Management</router-link>
