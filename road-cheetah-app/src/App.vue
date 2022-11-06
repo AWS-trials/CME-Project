@@ -1,21 +1,22 @@
 <template>
-  <Navbar></Navbar>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav> -->
-  <router-view />
+  <Authenticator>
+    <Navbar></Navbar>
+    <router-view />
+  </Authenticator>
 </template>
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
 import Navbar from '@/components/Navbar.vue'
+import { Authenticator } from '@aws-amplify/ui-vue'
+import "@aws-amplify/ui-vue/styles.css";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
-    Navbar
+    Navbar,
+    Authenticator,
   }
 }
 </script>

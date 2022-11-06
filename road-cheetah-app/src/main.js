@@ -6,6 +6,7 @@ import store from './store'
 // import awsExports from './aws-exports'
 // Amplify.configure(awsExports)
 import 'maplibre-gl/dist/maplibre-gl.css'
+import axios from 'axios';
 
 import {
   applyPolyfills,

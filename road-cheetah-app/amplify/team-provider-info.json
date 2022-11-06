@@ -19,5 +19,23 @@
         "maptry": {}
       }
     }
+  },
+  "yimei": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-roadcheetahapp-yimei-235714-authRole",
+      "UnauthRoleArn": "arn:aws:iam::444278898470:role/amplify-roadcheetahapp-yimei-235714-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::444278898470:role/amplify-roadcheetahapp-yimei-235714-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-roadcheetahapp-yimei-235714-deployment",
+      "UnauthRoleName": "amplify-roadcheetahapp-yimei-235714-unauthRole",
+      "StackName": "amplify-roadcheetahapp-yimei-235714",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:444278898470:stack/amplify-roadcheetahapp-yimei-235714/59ed44c0-5c59-11ed-b0fa-06eddd27977e",
+      "AmplifyAppId": "d8vjypqcuyqby"
+    },
+    "categories": {
+      "auth": {
+        "roadcheetahapp0d199ae7": {}
+      }
+    }
   }
 }
