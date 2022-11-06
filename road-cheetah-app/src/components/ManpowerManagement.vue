@@ -1,10 +1,8 @@
 <template>
     <br/>
-
+    
     <div class="p-3 mb-2 container bg-light">
-        <h2>
-            <b>Manpower Management:</b>
-        </h2>
+
         <br>
         <table class="table">
             <thead>
@@ -12,7 +10,7 @@
                     <th scope="col">Driver Name</th>
                     <th scope="col">Working Status</th>
                     <th scope="col">Update Working Status</th>
-                    <th scope="col">Assigned Warehouse</th>
+                    <th scope="col">No. of Orders Allocated</th>
                     <th scope="col">Orders Completed</th>
                     <th scope="col">Orders In-Progress</th>
                 </tr>
@@ -50,7 +48,7 @@
                     </td>
 
 
-                    <td>{{ driver.AssignedWarehouse }}</td>
+    
 
 
                 <!-- Get  numberInProgressDeliveries from DriverDeliveries and driver ID / or route table -->
