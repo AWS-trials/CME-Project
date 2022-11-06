@@ -15,9 +15,6 @@
                     <li class="nav-item" v-if="currentUserRole == 'driver'">
                         <router-link class="nav-link" to="/driverRouteView">Delivery Route</router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole == 'driver'">
-                        <router-link class="nav-link" to="/driverHomeView">Driver Deliveries</router-link>
-                    </li>
                     <li class="nav-item" @click="signOut()">
                         <a class="nav-link" href="#">Sign Out</a>
                     </li>
