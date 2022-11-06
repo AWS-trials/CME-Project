@@ -9,9 +9,19 @@
     </div> -->
 
     <br/>
-
+    <div class="p-3 mb-4 container bg-light">
+        <h2>
+            <b>Overview:</b>
+        </h2>
+        <h5 class="text-start">Deliveries in progress: {{numberInProgressDeliveries}} </h5>
+        <h5 class="text-start">Deliveries completed: {{ numberCompletedDeliveries }}</h5>
+        
+    </div>
     <div class="p-3 mb-2 container bg-light">
-        <h2 class="text-start">My Deliveries</h2>
+        <h2>
+            <b>My Deliveries:</b>
+        </h2>
+        <br>
         <table class="table">
             <thead>
                 <tr>
@@ -62,37 +72,14 @@
 <script>
 import axios from 'axios';
 import moment from 'moment';
+import { isProxy, toRaw } from 'vue';
 export default {
     name: "DriverDeliveries",
     data(){
         return{
             orders:[],
-            // orders: [
-            //     {
-            //         id: 1,
-            //         recipient: "Mark",
-            //         address: "Sembawang",
-            //         postalCode: "123445",
-            //         zone: "North",
-            //         status: "Pending"
-            //     },
-            //     {
-            //         id: 2,
-            //         recipient: "Jacob",
-            //         address: "Yishun",
-            //         postalCode: "123445",
-            //         zone: "North",
-            //         status: "Pending"
-            //     },
-            //     {
-            //         id: 3,
-            //         recipient: "Larry the Bird",
-            //         address: "Yishun",
-            //         postalCode: "123445",
-            //         zone: "North",
-            //         status: "Pending"
-            //     }
-            // ],
+            numberInProgressDeliveries:0,
+            numberCompletedDeliveries:0
         }
     },
     components:{},
@@ -100,26 +87,30 @@ export default {
         updateDeliveryStatus(order, status){
             order.status = status
         },
-        calculateCompletedDeliveries(orders){
-            let completedDeliveries = 0
-            for(let i = 0; i < orders.length; i++){
-                if(orders[i].status === "Delivered"){
-                    completedDeliveries++
-                }
-            }
-            this.numberCompletedDeliveries = completedDeliveries
-        }
+        // calculateCompletedDeliveries(orders){
+
+        //     let completedDeliveries = 0
+        //     for(let i = 0; i < this.orders.length; i++){
+        //         console.log(this.orders[i])
+        //         if(orders[i].status === "Delivered"){
+        //             completedDeliveries++
+        //         }
+        //     }
+        //     this.numberCompletedDeliveries = completedDeliveries
+        // }
     },
-    created() {
+    async created() {
             var date = moment();
             var currentDate = date.format('DD-MM-YYYY');
             //console.log(currentDate);
             var url = "https://6x9208fr4j.execute-api.ap-southeast-1.amazonaws.com/dev/DistributeOrderToEachDriver"
-            axios.get(url)
+            await axios.get(url)
 			.then(response => {
                 var response = response.data
+                console.log("here")
+                console.log(response.json)
                 for(var key in response) {
-                    //console.log(response[key])
+                    //console.log(response[key])2
                     var delivery_obj = response[key];
                     //console.log(delivery_obj)
                     for (let each in delivery_obj) {
@@ -127,24 +118,30 @@ export default {
                         //console.log(typeof(currentDate),currentDate)
                         if (delivery_obj[each]["AssignedDateTime"]==currentDate) {
                             //console.log("woof")
-                            //console.group(delivery_obj[each])
+                            // console.group(typeof(delivery_obj[each]))
                             this.orders.push(delivery_obj[each])
                         }
                     }
+                    console.log(typeof(this.orders))
                 }
 			})
 			.catch(error => {
 				// process error object
 			});
-            console.log("woof")
-            console.log(this.orders)
-            let completedDeliveries = 0;
-            for (let i = 0; i < this.orders.length; i++) {
-                if (this.orders[i].status === "Delivered") {
-                    completedDeliveries++
+            var totalDeliveries= this.orders.length;
+            var undelivered = 0;
+           // console.log(completedDeliveries)
+            let rawOrders = toRaw(this.orders)
+            rawOrders.forEach(o => 
+            {   console.log(o)
+                if (o["Status"] == "Undelivered") {
+                    console.log("dog",o)
+                    undelivered++;
                 }
-            }
-            return completedDeliveries + "/" + this.orders.length
+            })
+            this.numberInProgressDeliveries=undelivered
+            this.numberCompletedDeliveries=totalDeliveries-undelivered
+            // return completedDeliveries + "/" + this.orders.length
         }
     }
 </script>
