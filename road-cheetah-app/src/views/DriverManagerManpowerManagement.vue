@@ -1,6 +1,6 @@
 <template>
     <br>
-    <h1>Manpower Management</h1>
+    <!-- <h1>Manpower Management</h1> -->
     <ManpowerManagement/>
 </template>
 
