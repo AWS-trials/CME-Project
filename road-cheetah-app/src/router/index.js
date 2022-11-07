@@ -10,6 +10,11 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/driverHomeView',
+    name: 'driverHomeView',
     component: DriverHomeView
   },
   {
