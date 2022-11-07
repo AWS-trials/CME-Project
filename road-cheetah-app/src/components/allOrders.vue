@@ -12,7 +12,7 @@
                     <th scope="col">Driver Assigned</th>
                     <th scope="col">Delivery Status</th>
                     <th scope="col">Scheduled Delivery Date</th>
-                    <th scope="col">Scheduled Delivery Date</th>
+                    <th scope="col">Actual Delivery Date</th>
                 </tr>
             </thead>
             <tbody>
