@@ -1,11 +1,8 @@
 <template>
-    <br />
-
     <div class="p-3 mb-2 container bg-light">
         <h2>
             <b>Manpower Management</b>
         </h2>
-
         <br>
         <table class="table">
             <thead>
@@ -20,22 +17,17 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- populate info from driver table! -->
 
-                <tr v-for="driver in drivers" :key="driver" :drivers="drivers">
-                    <th scope="row">{{ driver.driverId }}</th>
+                <tr v-for="driver in drivers" :key="driver">
+                    <td>hi {{driver}}</td>
+                    <td>{{ driver.driverId }}</td>
                     <td>{{ driver.isWorking }}</td>
 
                     <!-- <td>{{ driver.OrderStatuses.length }}</td> -->
                     
-
-
                     <!-- <td>{{ Countdriverorder(driver)[0] }}</td>
                     <td>{{ Countdriverorder(driver)[1]  }}</td>
                     <td>{{ Countdriverorder(driver)[2]  }}</td> -->
-                    
-
-
                 </tr>
 
 
@@ -173,7 +165,7 @@ export default defineComponent({
         return {
 
             headers,
-            drivers,
+            drivers: computed(()=>drivers.value),
             drivers_count,
             Countdriverorder,
 
