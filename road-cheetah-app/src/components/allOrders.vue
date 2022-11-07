@@ -12,17 +12,17 @@
                     <th scope="col">Driver Assigned</th>
                     <th scope="col">Delivery Status</th>
                     <th scope="col">Scheduled Delivery Date</th>
-                    <th scope="col">Scheduled Delivery Date</th>
+                    <th scope="col">Warehouse</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="order in orders">
                     <th scope="row">{{ order.orderID }}</th>
                     <td>{{ order.RecipientName}}</td>
-                    <td>{{ order.RecipientAddress }}</td>
-                    <td>{{ order.PostalCode }}</td>
+                    <td>{{order.DriverId}}</td>
+                    <td> {{ order.Status}} </td>
+                    <td>{{ order.AssignedDateTime }}</td>
                     <td>{{ order.AssignedWarehouse}}</td>
-                    <td> {{ order.Status}}
                         <!-- <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ order.status }}
@@ -45,7 +45,7 @@
                                 </li>
                             </ul>
                         </div> -->
-                    </td>
+
                 </tr>
             </tbody>
         </table>
@@ -95,6 +95,7 @@ export default {
                     //console.log(response[key])2
                     var delivery_obj = response[key];
                     //console.log(delivery_obj)
+                    //delivery_obj["driver_id"] = key;
                     for (let each in delivery_obj) {
                         //console.log(typeof(delivery_obj[each]["AssignedDateTime"]),delivery_obj[each]["AssignedDateTime"])
                         //console.log(typeof(currentDate),currentDate)

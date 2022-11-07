@@ -108,30 +108,17 @@ export default {
 			.then(response => {
                 var response = response.data
                 console.log("here")
-                console.log(response)
-                for(var key in response) {
+                var driver_id = 2
+                var order_for_driver = response[driver_id]
+                console.log(order_for_driver)
+                for(var key in order_for_driver) {
                     //console.log(key)
-                    console.log(response[key]);
-                    // var delivery_obj = response[key];
-                    // console.log("Woof")
-                    // console.log(delivery_obj)
-                    // if (delivery_obj["AssignedDateTime"]==currentDate) {
-                    //         //console.log("woof")
-                    //         // console.group(typeof(delivery_obj[each]))
-                    //         this.orders.push(delivery_obj)
-                    //     }
-                    // for (let each in delivery_obj) {
-                    //     console.log("2nd for")
-                    //     console.log(each)
-                    //     //console.log(typeof(delivery_obj[each]["AssignedDateTime"]),delivery_obj[each]["AssignedDateTime"])
-                    //     //console.log(typeof(currentDate),currentDate)
-                    //     if (delivery_obj[each]["AssignedDateTime"]==currentDate) {
-                    //         //console.log("woof")
-                    //         // console.group(typeof(delivery_obj[each]))
-                    //         this.orders.push(delivery_obj[each])
-                    //     }
-                    // }
-                    console.log(typeof(this.orders))
+                    console.log("in for")
+                    console.log(order_for_driver[key]);
+                    this.orders.push(order_for_driver[key])
+
+                    console.log(order_for_driver[key]["AssignedWarehouse"])
+
                 }
 			})
 			.catch(error => {
