@@ -9,7 +9,7 @@
                 <tr>
                     <th scope="col">Order ID</th>
                     <th scope="col">Delivery Recipient</th>
-                    <th scope="col">Driver Assigned</th>
+                    <th scope="col">Driver ID Assigned</th>
                     <th scope="col">Delivery Status</th>
                     <th scope="col">Scheduled Delivery Date</th>
                     <th scope="col">Warehouse</th>
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders">
-                    <th scope="row">{{ order.orderID }}</th>
+                    <th scope="row">#{{ order.orderID }}</th>
                     <td>{{ order.RecipientName}}</td>
                     <td>{{order.DriverId}}</td>
                     <td> {{ order.Status}} </td>
