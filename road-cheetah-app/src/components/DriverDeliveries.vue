@@ -66,7 +66,7 @@ export default {
                // console.log(response.data)
                 var response = response.data.orders
                 for (let each in response) {
-                    if (response[each]["AssignedDateTime"] == currentDate) {
+                    if (response[each]["AssignedDateTime"] == currentDate && response[each]["AssignedDriver"]==2 ) {
                         console.log("yay")
                         this.orders.push(response[each])
                     }
