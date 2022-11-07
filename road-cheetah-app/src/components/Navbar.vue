@@ -18,14 +18,14 @@
                     <li class="nav-item" v-if="currentUserRole === 'driver'">
                         <router-link class="nav-link" to="/driverRouteView" v-if="currentUserRole === 'driver'">Delivery Route</router-link>
                     </li>
-                    <li class="nav-item" v-if="currentUserRole === 'manager'">
+                    <!-- <li class="nav-item" v-if="currentUserRole === 'manager'">
                         <router-link class="nav-link" to="/driverManager">Delivery Manager Dashboard</router-link>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <router-link class="nav-link" to="/driverManagerManpowerManagement" v-if="currentUserRole === 'manager'">Driver Manpower Management</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/driverManagerOrders">Driver Manager Orders</router-link>
+                        <router-link class="nav-link" to="/driverManagerOrders" v-if="currentUserRole === 'manager'">Driver Manager Orders</router-link>
                     </li>
                     <li class="nav-item" @click="signOut()">
                         <a class="nav-link" href="#">Sign Out</a>
