@@ -54,11 +54,15 @@ export default {
             var url = "https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/orders"
             await axios.get(url)
 			.then(response => {
-                console.log(response.data)
+                console.log("woof")
                 var response = response.data.orders
+                console.log(response)
                 for (let each in response) {
-                    console.log(response[each])
-                    this.orders.push(response[each])
+                    if (response[each]["AssignedDateTime"] == currentDate) {
+                        console.log("yay")
+                        this.orders.push(response[each])
+                    }
+                    //console.log(response[each])
                 }
 			})
 			.catch(error => {

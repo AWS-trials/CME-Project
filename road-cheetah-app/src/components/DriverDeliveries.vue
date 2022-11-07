@@ -59,15 +59,18 @@ export default {
     async created() {
             var date = moment();
             var currentDate = date.format('DD-MM-YYYY');
-            //console.log(currentDate);
+            console.log(currentDate);
             var url = "https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/orders"
             await axios.get(url)
 			.then(response => {
-                console.log(response.data)
+               // console.log(response.data)
                 var response = response.data.orders
                 for (let each in response) {
-                    console.log(response[each])
-                    this.orders.push(response[each])
+                    if (response[each]["AssignedDateTime"] == currentDate) {
+                        console.log("yay")
+                        this.orders.push(response[each])
+                    }
+                    //console.log(response[each])
                 }
 			})
 			.catch(error => {
