@@ -10,59 +10,40 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Driver ID</th>
+                    <!-- <th scope="col">Driver ID</th>
                     <th scope="col">Is Working?</th>
                     <th scope="col">Update Working Status</th>
                     <th scope="col">No. of Orders Allocated</th>
                     <th scope="col">Orders Completed</th>
-                    <th scope="col">Orders Incompleted</th>
-                    <!-- <th scope="col" v-for="header in headers" :key="header">{{header}}</th> -->
+                    <th scope="col">Orders Incompleted</th> -->
+                    <th scope="col" v-for="header in headers" :key="header">{{ header }}</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- populate info from driver table! -->
 
                 <tr v-for="driver in drivers" :key="driver" :drivers="drivers">
-                    <th scope="row">{{ driver.driverID }}</th>
+                    <th scope="row">{{ driver.driverId }}</th>
                     <td>{{ driver.isWorking }}</td>
 
-                    <!-- update driver status ,dropdown-->
-                    <td>{{ driver.isWorking }}
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                {{ driver.isWorking }}
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#" @click="updateDriverStatus(driver, True)">
-                                        True
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#" @click="updateDriverStatus(driverFalse)">
-                                        False
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <!-- <td>{{ driver.OrderStatuses.length }}</td> -->
+                    
 
-                    </td>
-                    <!-- No. of Orders Allocated -->
 
-                    <td>{{ driver.OrderStatuses.length }}</td>
-
-                    <!--   Orders Completed -->
-                    <td>{{ driver.OrderStatuses }}</td>
-                     <!--   Orders Incompleted -->
-                    <td>{{ driver.OrderStatuses }}</td>
+                    <!-- <td>{{ Countdriverorder(driver)[0] }}</td>
+                    <td>{{ Countdriverorder(driver)[1]  }}</td>
+                    <td>{{ Countdriverorder(driver)[2]  }}</td> -->
+                    
 
 
                 </tr>
+
+
             </tbody>
         </table>
     </div>
 </template>
+
 <script>
 
 //Method 1 
@@ -147,64 +128,62 @@
 
 import axios from 'axios';
 import { computed, defineComponent, onBeforeMount, ref } from 'vue';
-  
+
 export default defineComponent({
-  name: 'ManpowerManagement',
-  components: {
-  },
-  setup(){
-    const driverId = '1'
-    let drivers = ref({})
-    let order_count = ref(0)
-    const headers = ["Driver ID", "Is Working?","Update Working Status", "No. of Orders Allocated","Orders Completed","Orders Incompleted"]
-    // const completeOrder = async (orderIndex)=>{
-    //   console.log(routes)
-    //   routes.value.OrderStatuses[orderIndex] = 'Complete'
-    //   let patch_request = {
-    //     "routeId":routeId,
-    //     "updateKey":"OrderStatuses",
-    //     "updateValue": routes.value.OrderStatuses,
-    //     "orderId":routes.value.Order[orderIndex],
-    //     "driverId": routes.value.driverId,
-    //   }
-    //   console.log('routes',  routes.value)
-    //   console.log('patch_request',patch_request)
-    //   const response = await axios.patch('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/drivers', patch_request)
-    //   console.log(response.data)
-    // }
-    onBeforeMount(async ()=>{
-      const getDriverById = async (driverId)=> {
-        const response = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/driver?driverId=' + driverId)
-        return response.data
-      }
-      await getRouteById(routeId).then((response)=> {routes.value = response})
-      order_count = driver.OrderStatuses.length
-    })
+    name: 'ManpowerManagement',
+    components: {
+    },
+    setup() {
 
-    return{
-      
-      headers,
-      order_count,
-      completeOrder
+        let drivers = ref({})
+        let drivers_count = 0
+        const headers = ["Driver ID", "Is Working?", "No. of Orders Allocated", "Orders Completed", "Orders Incompleted"]
+
+        function Countdriverorder(driver) {
+            let driver_success = 0
+            let driver_incomplete = 0
+            var totalDeliveries = driver.OrderStatuses.length;
+
+            for (var orderID in driver.OrderStatuses) {
+                if (driver.OrderStatuses[orderID] == "Incomplete") {
+
+                    driver_incomplete++;
+                }
+              
+            }
+
+            driver_success = totalDeliveries - driver_incomplete
+            return [totalDeliveries, driver_success, driver_incomplete]
+        }
+
+        onBeforeMount(async () => {
+            const getDrivers = async () => {
+                const response = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/drivers'
+                )
+                return response.data
+            }
+            await getDrivers().then((response) => { drivers.value = response })
+            console.log(drivers.value)
+            drivers_count = drivers.length
+        })
+
+
+
+
+        return {
+
+            headers,
+            drivers,
+            drivers_count,
+            Countdriverorder,
+
+
+        }
+
+    },
+    methods: {
+
     }
-
-  },
-  methods:{
-//     async getRoute(){
-//       const getRouteById = async (routeId)=> {
-//         const response = await axios.get('https://3mb16n3708.execute-api.ap-southeast-1.amazonaws.com/dev/route?routeId=' + routeId)
-//         return response.data
-//       }
-//       await getRouteById(routeId).then((response)=> {routes.value = response})
-//       order_count = routes.value.Orders.length
-//       console.log(routes)
-//       console.log('count',order_count)
-//     }
-//   },
-//   async beforeCreate (){
-//     await this.getRoute(routeId)
-//     await setTimeout(()=>{console.log(timeout)}, 500)
-  }
 })
 
 
