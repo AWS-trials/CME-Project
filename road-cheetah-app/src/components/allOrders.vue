@@ -1,7 +1,7 @@
 <template>
     <div class="mt-4 p-3 mb-2 container bg-light">
         <h2>
-            <b>Order Management:</b>
+            <b>Order Management</b>
         </h2>
         <br>
         <table class="table">
